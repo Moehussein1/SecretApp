@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            string[] userNames = { "Pelle", "Stina", "Ali" };
+            string[] userPasswords = { "1234", "abcd", "qwerty" };
+
         }
     }
 }
