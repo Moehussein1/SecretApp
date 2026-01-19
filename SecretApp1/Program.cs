@@ -1,31 +1,64 @@
-﻿using System.Net.Http.Json;
+﻿using System.ComponentModel.Design;
+using System.Net.Http.Json;
 
 namespace SecretApp1
 {
     internal class Program
     {
 
-        string[] userNames = { "Pelle", "Stina", "Ali" };
-        string[] userPasswords = { "1234", "abcd", "qwerty" };
+        static string[] userNames = { "Pelle", "Stina", "Ali" };
+        static string[] userPasswords = { "1234", "abcd", "qwerty" };
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hej");
+            Thread.Sleep(3000);
+            bool runProgram = true;
+          while (runProgram) 
+            {
+                Console.WriteLine("Välj 0 eller 1");
+
+                if (int.TryParse(Console.ReadLine(), out int choice))
+                {
+                    if (choice == 1)
+                    {
+                        Console.WriteLine("Du valde 1");
+                    }
+                    else if (choice == 0)
+                    {
+                        runProgram = false;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Välj i menyn");
+                    {
+                        Console.WriteLine("Hej då");
+                        Thread.Sleep(3000);
+                    }
+                }
+            }
+        }
+        
+
         static void AddUser()
         {
-            Console.WriteLine("Hello from AddUser");
-        }
-
-        static void ChangePassword()
-        {
-            Console.WriteLine("Hello from ChangePassword");
+            Console.WriteLine("Hello from AddUser()");
         }
 
         static void ShowUsers()
         {
-            Console.WriteLine("Hello from ShowUsers");
+           int i = 0;
+            while(i < userNames.Length)
+            {
+                Console.WriteLine(userNames[i].ToUpper());
+            }
+            
         }
 
         static void EndApplication()
         {
-            Console.WriteLine("Hello from EndApplication");
+            Console.WriteLine("Hello from EndApplication()");
         }
-
     }
 }
