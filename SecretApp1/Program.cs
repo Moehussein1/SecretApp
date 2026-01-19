@@ -1,12 +1,22 @@
-﻿using System.Net.Http.Json;
+﻿using System.ComponentModel.Design;
+using System.Net.Http.Json;
 
 namespace SecretApp1
 {
     internal class Program
     {
 
-        string[] userNames = { "Pelle", "Stina", "Ali" };
-        string[] userPasswords = { "1234", "abcd", "qwerty" };
+        static string[] userNames = { "Pelle", "Stina", "Ali" };
+        static string[] userPasswords = { "1234", "abcd", "qwerty" };
+
+        static void Main(string[] args)
+        {
+            bool runProgram = true;
+          while (runProgram) 
+            {
+                
+            }
+        }
         static void AddUser()
         {
             Console.WriteLine("Hello from AddUser");
@@ -19,7 +29,12 @@ namespace SecretApp1
 
         static void ShowUsers()
         {
-            Console.WriteLine("Hello from ShowUsers");
+           int i = 0;
+            while(i < userNames.Length)
+            {
+                Console.WriteLine(userNames[i].ToUpper());
+            }
+            
         }
 
         static void EndApplication()
