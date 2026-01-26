@@ -1,24 +1,21 @@
-﻿namespace SecretAppla
+﻿using System.ComponentModel.Design;
+
+namespace SecretApp1
 {
     internal class Program
     {
         static string[] userNames = { "Pelle", "Stina", "Ali" };
-        static string[] userPasswords = { "1234", "12345", "12346" };
+        static string[] userPasswords = { "1234", "12345", "123456" };
+
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hej");
-
+            Console.WriteLine("Välkommen till secret app");
+            Menu();
             bool runRrogram = true;
             while (runRrogram)
-            {
-                Console.WriteLine("" +
-                    "1. Logga in\r\n" +
-                    "2. Lägg till användare\r\n" +
-                    "3. Ändra lösenord\r\n" +
-                    "4. Vissa användar Lista\r\n" +
-                    "0. Avsluta\r\n");
 
+            {
                 if (int.TryParse(Console.ReadLine(), out int choice))
                 {
                     if (choice == 1)
@@ -37,19 +34,26 @@
                     {
                         ShowUsers();
                     }
+                    else if (choice == 9)
+                    {
+                        Menu();
+                    }
+
                     else if (choice == 0)
                     {
                         runRrogram = false;
                     }
+
                 }
                 else
                 {
                     Console.WriteLine("Välj i menyn");
+
                 }
             }
 
             Console.WriteLine("Hej då");
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
         }
 
         static void AddUser()
@@ -69,8 +73,37 @@
 
         static void LoggIn()
         {
-            Console.WriteLine("Helo from LoggIn");
-        }
+            Console.WriteLine("Inloggning");
+            Console.Write("Namn: ");
+            String name = Console.ReadLine();
+            Console.Write("Lösenord: ");
+            String password = Console.ReadLine();
+            
+            int i = 0;
+            while (i < userNames.Length)
+            {
+                if (userNames[i] == name)
+                {
+                    if (userPasswords[i] == password)
+                    {
+                        Console.WriteLine("Välkommen " + name);
+                        break;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Felaktigt lösenord");
+                    }
+                }
+                    i++;
+            }
+            if(Array.IndexOf(userNames, name) == -1)
+            {
+                Console.WriteLine("Användaren finns inte");
+            }
+         Menu();
+            }
+         
 
         static void ChangePassword()
         {
@@ -80,6 +113,17 @@
         static void EndApplication()
         {
             Console.WriteLine("Hello from EndApplication()");
+        }
+
+        static void Menu()
+        {
+            Console.WriteLine("" +
+                     "1. Logga in\r\n" +
+                     "2. Lägg till användare\r\n" +
+                     "3. Ändra lösenord\r\n" +
+                     "4. Vissa användar Lista\r\n" +
+                     "9. Visa Meny\r\n" +
+                     "0. Avsluta\r\n");
         }
     }
 }
