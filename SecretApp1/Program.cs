@@ -1,64 +1,65 @@
-﻿using System.ComponentModel.Design;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 
 namespace SecretApp1
 {
     internal class Program
     {
-
         static string[] userNames = { "Pelle", "Stina", "Ali" };
-        static string[] userPasswords = { "1234", "abcd", "qwerty" };
+        static string[] userPasswords = { "1234", "12345", "123456" };
+
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hej");
-            Thread.Sleep(3000);
-            bool runProgram = true;
-          while (runProgram) 
-            {
-                Console.WriteLine("Välj 0 eller 1");
+            Console.WriteLine("Välkommen till secret app");
+            Menu();
+            bool runRrogram = true;
+            while (runRrogram)
 
+            {
                 if (int.TryParse(Console.ReadLine(), out int choice))
                 {
                     if (choice == 1)
                     {
-                        Console.WriteLine("Du valde 1");
+                        LoggIn();
                     }
-                    else if (choice == 0)
+                    else if (choice == 2)
                     {
-                        runProgram = false;
+                        AddUser();
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Välj i menyn");
+                    else if (choice == 3)
                     {
-                        Console.WriteLine("Hej då");
-                        Thread.Sleep(3000);
+                        ChangePassword();
                     }
-                }
-            }
-        }
-        
+                    else if (choice == 4)
+                    {
+                        ShowUsers();
+                    }
+                    else if (choice == 9)
+                    {
+                        Menu();
+                    }
 
+        string[] userNames = { "Pelle", "Stina", "Ali" };
+        string[] userPasswords = { "1234", "abcd", "qwerty" };
         static void AddUser()
         {
-            Console.WriteLine("Hello from AddUser()");
+            Console.WriteLine("Hello from AddUser");
+        }
+
+        static void ChangePassword()
+        {
+            Console.WriteLine("Hello from ChangePassword");
         }
 
         static void ShowUsers()
         {
-           int i = 0;
-            while(i < userNames.Length)
-            {
-                Console.WriteLine(userNames[i].ToUpper());
-            }
-            
+            Console.WriteLine("Hello from ShowUsers");
         }
 
         static void EndApplication()
         {
             Console.WriteLine("Hello from EndApplication()");
         }
+
     }
 }
