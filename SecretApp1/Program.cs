@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Json;
+﻿using System.ComponentModel.Design;
 
 namespace SecretApp1
 {
@@ -39,21 +39,75 @@ namespace SecretApp1
                         Menu();
                     }
 
-        string[] userNames = { "Pelle", "Stina", "Ali" };
-        string[] userPasswords = { "1234", "abcd", "qwerty" };
-        static void AddUser()
-        {
-            Console.WriteLine("Hello from AddUser");
+                    else if (choice == 0)
+                    {
+                        runRrogram = false;
+                    }
+
+                }
+                else
+                {
+                    Console.WriteLine("Välj i menyn");
+
+                }
+            }
+
+            Console.WriteLine("Hej då");
+            Thread.Sleep(1000);
         }
 
-        static void ChangePassword()
+        static void AddUser()
         {
-            Console.WriteLine("Hello from ChangePassword");
+            Console.WriteLine("Hello from AddUser()");
         }
 
         static void ShowUsers()
         {
-            Console.WriteLine("Hello from ShowUsers");
+            int i = 0;
+            while (i < userNames.Length)
+            {
+                Console.WriteLine(userNames[i].ToUpper());
+                i++;
+            }
+        }
+
+        static void LoggIn()
+        {
+            Console.WriteLine("Inloggning");
+            Console.Write("Namn: ");
+            String name = Console.ReadLine();
+            Console.Write("Lösenord: ");
+            String password = Console.ReadLine();
+
+            int i = 0;
+            while (i < userNames.Length)
+            {
+                if (userNames[i] == name)
+                {
+                    if (userPasswords[i] == password)
+                    {
+                        Console.WriteLine("Välkommen " + name);
+                        break;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Felaktigt lösenord");
+                    }
+                }
+                i++;
+            }
+            if (Array.IndexOf(userNames, name) == -1)
+            {
+                Console.WriteLine("Användaren finns inte");
+            }
+            Menu();
+        }
+
+
+        static void ChangePassword()
+        {
+            Console.WriteLine("Hello from ChangePassword()");
         }
 
         static void EndApplication()
@@ -61,5 +115,15 @@ namespace SecretApp1
             Console.WriteLine("Hello from EndApplication()");
         }
 
+        static void Menu()
+        {
+            Console.WriteLine("" +
+                     "1. Logga in\r\n" +
+                     "2. Lägg till användare\r\n" +
+                     "3. Ändra lösenord\r\n" +
+                     "4. Vissa användar Lista\r\n" +
+                     "9. Visa Meny\r\n" +
+                     "0. Avsluta\r\n");
+        }
     }
 }
