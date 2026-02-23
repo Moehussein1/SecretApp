@@ -6,6 +6,8 @@ namespace SecretApp1
     {
         static string[] userNamesList = { "Pelle", "Stina", "Ali" };
         static string[] userPasswordsList = { "1234", "12345", "123456" };
+        static bool userloggedin = false;
+        static string loggedInUser = "";
 
 
         static void Main(string[] args)
@@ -197,6 +199,14 @@ namespace SecretApp1
 
 
 
+        }
+        static void Notloggedin()
+        {
+            Console.WriteLine("Antiagen så har du glömt skriva in ditt namn eller ditt lösenord. Försök igen!");
+        }
+        static void EmptyInputsMessage()
+        {
+            Console.WriteLine("Antigen så har du glömt skriva in ditt namn eller ditt lösenord. Försök igen!");
         }
 
         static void EndApplication()
