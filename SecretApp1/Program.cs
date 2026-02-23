@@ -6,7 +6,7 @@ namespace SecretApp1
     {
         static string[] userNamesList = { "Pelle", "Stina", "Ali" };
         static string[] userPasswordsList = { "1234", "12345", "123456" };
-        static bool userLoggedin = false;
+        static bool userLoggedIn = false;
         static string loggedInUser = "";
 
 
@@ -66,6 +66,11 @@ namespace SecretApp1
 
         static void AddUser()
         {
+            if (!userLoggedIn)
+            {
+                Console.WriteLine("Du måste vara inloggad för att lägga till användare.");
+                return;
+            }
             Console.WriteLine(" här kan du lägga till användare)");
             Console.Write("Namn: ");
             String name = Console.ReadLine();
@@ -138,7 +143,7 @@ namespace SecretApp1
                 {
                     if (userNamesList[i] == name && userPasswordsList[i] == password)
                     {
-                        userLoggedin = true;
+                        userLoggedIn = true;
                         loggedInUser = name;
                         Console.WriteLine("Välkommen " + name);
                         return;
