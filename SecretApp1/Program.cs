@@ -6,7 +6,7 @@ namespace SecretApp1
     {
         static string[] userNamesList = { "Pelle", "Stina", "Ali" };
         static string[] userPasswordsList = { "1234", "12345", "123456" };
-        static bool userloggedin = false;
+        static bool userLoggedin = false;
         static string loggedInUser = "";
 
 
@@ -125,35 +125,29 @@ namespace SecretApp1
 
         static void LoggIn()
         {
-            Console.WriteLine("Inloggning");
-            Console.Write("Namn: ");
-            String name = Console.ReadLine();
-            Console.Write("Lösenord: ");
-            String password = Console.ReadLine();
-
-            int i = 0;
-            while (i < userNamesList.Length)
+            static void LoggIn()
             {
-                if (userNamesList[i] == name)
+                Console.WriteLine("Inloggning");
+                Console.Write("Namn: ");
+                string name = Console.ReadLine();
+                Console.Write("Lösenord: ");
+                string password = Console.ReadLine();
+
+                int i = 0;
+                while (i < userNamesList.Length)
                 {
-                    if (userPasswordsList[i] == password)
+                    if (userNamesList[i] == name && userPasswordsList[i] == password)
                     {
+                        userLoggedin = true;
+                        loggedInUser = name;
                         Console.WriteLine("Välkommen " + name);
-                        break;
+                        return;
                     }
-
-                    else
-                    {
-                        Console.WriteLine("Felaktigt lösenord");
-                    }
+                    i++;
                 }
-                i++;
+
+                Console.WriteLine("Fel namn eller lösenord");
             }
-            if (Array.IndexOf(userNamesList, name) == -1)
-            {
-                Console.WriteLine("Användaren finns inte");
-            }
-            Menu();
         }
 
 
