@@ -79,12 +79,25 @@ namespace SecretApp1
 
             String[] tempNames = new string[userNamesList.Length + 1];
             String[] tempPasswords = new string[userPasswordsList.Length + 1];
-            Console.WriteLine(tempNames[3]);
-
-            userNamesList[userNamesList.Length - 1] = name;
-            userPasswordsList[userPasswordsList.Length - 1] = password;
-
+           
             int i = 0;
+            while (i < userNamesList.Length)
+            {
+                tempNames[i] = userNamesList[i];
+                tempPasswords[i] = userPasswordsList[i];
+                i++;
+            }
+
+            tempNames[tempNames.Length - 1] = name;
+            tempPasswords[tempPasswords.Length - 1] = password;
+
+            userNamesList = tempNames;
+            userPasswordsList = tempPasswords;
+
+            Console.WriteLine("Användare tillagd!");
+
+            
+           i = 0;
             while (i < userNamesList.Length) 
             {
                 tempNames[i] = userNamesList[i];
