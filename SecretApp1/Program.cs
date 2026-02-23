@@ -171,7 +171,7 @@
             {
                 while (i < userNamesList.Length)
                 {
-                    Console.WriteLine(userNamesList[i] + " - " + userPasswordsList[i]);
+                    Console.WriteLine(userNamesList[i]);
                     i++;
                 }
             }
