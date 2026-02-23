@@ -42,6 +42,10 @@ namespace SecretApp1
                     {
                         DeleteUser();
                     }
+                    else if (choice == 6)
+                    {
+                        LogOut();
+                    }
                     else if (choice == 9)
                     {
                         Menu();
@@ -239,8 +243,23 @@ namespace SecretApp1
                      "3. Ändra lösenord\r\n" +
                      "4. Vissa användar Lista\r\n" +
                      "5. Ta bort namn ur listan\r\n" +
+                     "6. Logga ut\r\n" +
                      "9. Visa Meny\r\n" +
                      "0. Avsluta\r\n");
+        }
+
+        static void LogOut()
+        {
+            if (userLoggedIn)
+            {
+                Console.WriteLine("Du loggas ut.");
+                userLoggedIn = false;
+                loggedInUser = "";
+            }
+            else
+            {
+                Console.WriteLine("Ingen är inloggad.");
+            }
         }
     }
 }
