@@ -175,7 +175,31 @@ namespace SecretApp1
 
         static void ChangePassword()
         {
-            
+            static void ChangePassword()
+            {
+                if (!userLoggedIn)
+                {
+                    Console.WriteLine("Du måste vara inloggad.");
+                    return;
+                }
+
+                Console.Write("Skriv nytt lösenord: ");
+                string newPassword = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(newPassword))
+                {
+                    Console.WriteLine("Lösenord får inte vara tomt.");
+                    return;
+                }
+
+                int index = Array.IndexOf(userNamesList, loggedInUser);
+
+                if (index != -1)
+                {
+                    userPasswordsList[index] = newPassword;
+                    Console.WriteLine("Lösenord ändrat.");
+                }
+            }
         }
 
         static void DeleteUser()
