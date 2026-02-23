@@ -215,6 +215,10 @@ namespace SecretApp1
                 userNamesList = tempNames;
                 userPasswordsList = tempPasswords;
                 Console.WriteLine("Användaren är borttagen");
+                if (name == loggedInUser)
+                {
+                    LogOut();
+                }
             }
 
 
