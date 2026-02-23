@@ -177,6 +177,11 @@ namespace SecretApp1
         static void DeleteUser()
         {
 
+            if (!userLoggedIn)
+            {
+                Console.WriteLine("Du måste vara inloggad för att ta bort användare.");
+                return;
+            }
             String[] tempNames = new string[userNamesList.Length + 1];
             String[] tempPasswords = new string[userPasswordsList.Length + 1];
 
